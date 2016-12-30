@@ -10,6 +10,7 @@ import za.co.mmagon.jwebswing.demo.screens.ComponentOptionsScreen;
 import za.co.mmagon.jwebswing.demo.screens.MainWindowDisplay;
 import za.co.mmagon.jwebswing.demo.screens.SourceCodeScreen;
 import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
+import za.co.mmagon.jwebswing.htmlbuilder.css.displays.DisplayCSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Overflows;
 
 /**
@@ -17,7 +18,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Overflows;
  * @author GedMarc
  * @since 02 May 2015
  */
-@CSS(Overflow = Overflows.Hidden)
+@CSS(Display = @DisplayCSS(Overflow = Overflows.Hidden))
 public class FrameworksScreen extends DefaultScreenDisplay
 {
 

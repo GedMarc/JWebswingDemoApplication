@@ -1,6 +1,6 @@
 package za.co.mmagon.jwebswing.demo.screens;
 
-import za.co.mmagon.logger.LoggerFactory;
+import java.util.logging.Level;
 import za.co.mmagon.jwebswing.base.ajax.AjaxCall;
 import za.co.mmagon.jwebswing.base.ajax.AjaxResponse;
 import za.co.mmagon.jwebswing.base.events.click.ClickAdapter;
@@ -10,10 +10,7 @@ import za.co.mmagon.jwebswing.components.jqueryui.position.PositionLocationVerti
 import za.co.mmagon.jwebswing.components.jqxwidgets.buttons.JQXButton;
 import za.co.mmagon.jwebswing.components.jqxwidgets.buttons.JQXButtonTemplates;
 import za.co.mmagon.jwebswing.demo.DefaultScreenDisplay;
-import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
-import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Cursors;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSS;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementTypes;
+import za.co.mmagon.logger.LogFactory;
 
 /**
  *
@@ -27,13 +24,14 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementTypes;
  * Margin_Left = // =
  * @MeasurementCSS(-35)
  */
+/*
 @CSS(Margin_Bottom = @MeasurementCSS(10),
      Margin_Left = @MeasurementCSS(10),
      Margin_Top = @MeasurementCSS(10),
      Margin_Right = @MeasurementCSS(10),
      Font_Size = @MeasurementCSS(12),
      Width = @MeasurementCSS(value = 90, MeasurementType = MeasurementTypes.Percent),
-     Cursor = Cursors.Pointer)
+     Cursor = Cursors.Pointer)*/
 public class MenuButton extends JQXButton
 {
 
@@ -58,7 +56,7 @@ public class MenuButton extends JQXButton
             @Override
             public void onClick(AjaxCall call, AjaxResponse response)
             {
-                LoggerFactory.getInstance().makeNewLoggerInstance("MenuButtonOnClick").debug("Changing screen to " + newScreen);
+                LogFactory.getInstance().getLogger("MenuButtonOnClick").log(Level.CONFIG, "Changing screen to " + newScreen);
                 newScreen.getDefaultDisplayScreen().setID("UpdateDiv");
                 newScreen.getSourceCodeScreen().setID("sourceScreen");
                 newScreen.getComponentOptionsScreen().setID("compOptions");

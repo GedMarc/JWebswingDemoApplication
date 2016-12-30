@@ -20,7 +20,7 @@ package za.co.mmagon.jwebswing.demo.components;
 import za.co.mmagon.jwebswing.base.servlets.enumarations.Orientation;
 import za.co.mmagon.jwebswing.components.jqxwidgets.navbar.JQXNavBar;
 import za.co.mmagon.jwebswing.demo.DemoApplicationBody;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 
 /**
  * This Class
@@ -36,7 +36,7 @@ public class DemoHorizontalNavBar extends JQXNavBar
         getOptions().setTheme(DemoApplicationBody.jqxTheme);
         getOptions().setSelection(true);
         getOptions().setOrientation(Orientation.HORIZONTAL);
-        getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
+        getOptions().setWidth(MeasurementPercentages.hundredPercent);
     }
 
     @Override

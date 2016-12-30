@@ -26,8 +26,9 @@ import za.co.mmagon.jwebswing.components.jqxwidgets.layout.JQXLayoutAttributes;
 import za.co.mmagon.jwebswing.components.jqxwidgets.layout.JQXLayoutType;
 import za.co.mmagon.jwebswing.components.jqxwidgets.themes.JQXWidgetThemes;
 import za.co.mmagon.jwebswing.demo.screens.view.WelcomeToJWebSwingScreen;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementTypes;
 import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementTypes;
 
 /**
  *
@@ -138,7 +139,7 @@ public class JQXPageLayoutScreen
         centerLayoutArray.setType(JQXLayoutType.layoutGroup);
         centerLayoutArray.setOrientation(Orientation.VERTICAL);
         layoutArray.getItems().add(centerLayoutArray);
-        centerLayoutArray.setWidth(MeasurementCSSImpl.hundredPercent);
+        centerLayoutArray.setWidth(MeasurementPercentages.hundredPercent);
         centerLayoutArray.setHeight(new MeasurementCSSImpl(100, MeasurementTypes.Percent));
 
         JQXLayoutArray documentGroup = new JQXLayoutArray();
@@ -198,8 +199,8 @@ public class JQXPageLayoutScreen
         eastPanel2.setTitle("Tree2");
         eastPanel2.setContentContainer(propertiesPanel.getAttribute(JQXLayoutAttributes.Data_Container));
 
-        layout.getOptions().setHeight(MeasurementCSSImpl.hundredPercent);
-        layout.getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
+        layout.getOptions().setHeight(MeasurementPercentages.hundredPercent);
+        layout.getOptions().setWidth(MeasurementPercentages.hundredPercent);
         layout.getOptions().getLayout().add(layoutArray);
 
         return layout;

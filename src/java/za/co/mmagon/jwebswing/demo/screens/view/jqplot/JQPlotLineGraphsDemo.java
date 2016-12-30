@@ -59,8 +59,8 @@ public class JQPlotLineGraphsDemo extends DefaultScreenDisplay
     public MainWindowDisplay getDefaultDisplayScreen()
     {
         JQPlotGraphsMainWindow mwd = new JQPlotGraphsMainWindow();
-        barGraphsDiv1.setDisplay(Displays.Flex);
-        barGraphsDiv2.setDisplay(Displays.Flex);
+        barGraphsDiv1.getCss().getDisplay().setDisplay(Displays.Flex);
+        barGraphsDiv2.getCss().getDisplay().setDisplay(Displays.Flex);
 
         barGraphsDiv1.add(mwd.getLineGraph());
         barGraphsDiv1.add(mwd.getLineGraphPlotWithOptions());

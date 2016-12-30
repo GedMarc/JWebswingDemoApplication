@@ -20,8 +20,6 @@ package za.co.mmagon.jwebswing.demo.components;
 import za.co.mmagon.jwebswing.base.html.HeaderText;
 import za.co.mmagon.jwebswing.base.html.attributes.HeaderTypes;
 import za.co.mmagon.jwebswing.components.jqueryui.themes.JQUIThemeBlocks;
-import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSS;
 
 /**
  *
@@ -29,7 +27,6 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSS;
  * @since 24 Aug 2015
  * @version 1.0
  */
-@CSS(Margin_Top = @MeasurementCSS(0))
 public class ScreenHeader extends HeaderText
 {
 

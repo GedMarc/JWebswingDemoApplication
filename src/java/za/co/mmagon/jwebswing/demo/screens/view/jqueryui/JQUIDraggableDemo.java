@@ -13,6 +13,7 @@ import za.co.mmagon.jwebswing.demo.screens.ComponentOptionsScreen;
 import za.co.mmagon.jwebswing.demo.screens.MainWindowDisplay;
 import za.co.mmagon.jwebswing.demo.screens.SourceCodeScreen;
 import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Displays;
+import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Floats;
 
 /**
  *
@@ -48,11 +49,10 @@ public class JQUIDraggableDemo extends DefaultScreenDisplay
     public JQUIDraggable getDraggableDiv()
     {
         JQUIDraggable d = new JQUIDraggable("scope");
-        d.setHeight(90);
-        d.setWidth(90);
+        d.getCss().getDimensions().setHeight(90);
+        d.getCss().getDimensions().setWidth(90);
         d.addClass(JQUIThemeBlocks.UI_State_Active);
-        d.setDisplay(Displays.Flex);
-        d.setFloat(za.co.mmagon.jwebswing.htmlbuilder.css.displays.Float.Left);
+        d.getCss().getDisplay().setDisplay(Displays.Flex);
         d.add("I am Draggable");
         return d;
     }
@@ -60,45 +60,45 @@ public class JQUIDraggableDemo extends DefaultScreenDisplay
     public JQUIDraggable getDraggableDivOnlyVertical()
     {
         JQUIDraggable d = new JQUIDraggable("scope");
-        d.setHeight(90);
-        d.setWidth(90);
-        d.setDisplay(Displays.Flex);
+        d.getCss().getDimensions().setHeight(90);
+        d.getCss().getDimensions().setWidth(90);
         d.addClass(JQUIThemeBlocks.UI_State_Active);
+        d.getCss().getDisplay().setDisplay(Displays.Flex);
         d.add("I am Draggable Only Vertically");
         d.getOptions().setAxis(Axis.Y);
-        d.setFloat(za.co.mmagon.jwebswing.htmlbuilder.css.displays.Float.Left);
+        d.getCss().getDisplay().setFloat(Floats.Left);
         return d;
     }
 
     public JQUIDraggable getDraggableDivOnlyHorizontally()
     {
         JQUIDraggable d = new JQUIDraggable("scope");
-        d.setHeight(90);
-        d.setWidth(90);
-        d.setDisplay(Displays.Flex);
+        d.getCss().getDimensions().setHeight(90);
+        d.getCss().getDimensions().setWidth(90);
         d.addClass(JQUIThemeBlocks.UI_State_Active);
+        d.getCss().getDisplay().setDisplay(Displays.Flex);
         d.add("I am Draggable Only Horizontally");
         d.getOptions().setAxis(Axis.X);
-        d.setFloat(za.co.mmagon.jwebswing.htmlbuilder.css.displays.Float.Left);
         return d;
     }
 
     public JQUIDraggable getDraggableDivConstrained(Component constrain)
     {
         JQUIDraggable d = new JQUIDraggable("scope");
-        d.setHeight(90);
-        d.setWidth(90);
-        d.addClass(JQUIThemeBlocks.UI_State_Default);
+        d.getCss().getDimensions().setHeight(90);
+        d.getCss().getDimensions().setWidth(90);
+        d.addClass(JQUIThemeBlocks.UI_State_Active);
+        d.getCss().getDisplay().setDisplay(Displays.Flex);
         d.add("I am Constrained");
         d.getOptions().setContainment(constrain);
-        d.setFloat(za.co.mmagon.jwebswing.htmlbuilder.css.displays.Float.Left);
+        d.getCss().getDisplay().setFloat(Floats.Left);
         return d;
     }
 
     public Div getDraggableWithSortable()
     {
         Div d = new Div();
-        d.setDisplay(Displays.Block);
+        d.getCss().getDisplay().setDisplay(Displays.Block);
         JQUISortable sortableList = new JQUISortable();
         sortableList.addClass(JQUIThemeBlocks.UI_State_Default);
         sortableList.getList().add("Item 1");
@@ -127,8 +127,8 @@ public class JQUIDraggableDemo extends DefaultScreenDisplay
                 + "Please see the JQuery UI Draggable API or the Properties Display Window<br><br>");
         mwd.add(getDraggable());
         Div constran = new Div();
-        constran.setHeight(250);
-        constran.setWidth(250);
+        constran.getCss().getDimensions().setHeight(250);
+        constran.getCss().getDimensions().setWidth(250);
         constran.add(getDraggableDivConstrained(constran));
         constran.addClass(JQUIThemeBlocks.UI_State_Error);
         mwd.add(constran);

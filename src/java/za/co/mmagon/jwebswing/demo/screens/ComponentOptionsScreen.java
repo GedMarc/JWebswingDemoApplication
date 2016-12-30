@@ -25,8 +25,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
-import org.apache.logging.log4j.Logger;
-import za.co.mmagon.logger.LoggerFactory;
+import java.util.logging.Logger;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.base.html.HeaderText;
 import za.co.mmagon.jwebswing.base.html.TableBodyGroup;
@@ -48,12 +47,12 @@ import za.co.mmagon.jwebswing.demo.components.DemoDefaultSpinner;
 import za.co.mmagon.jwebswing.demo.components.DemoHeader;
 import za.co.mmagon.jwebswing.demo.components.DemoInputText;
 import za.co.mmagon.jwebswing.demo.components.DemoPanel;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
-import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptFunction;
 import za.co.mmagon.jwebswing.utilities.ComponentUtils;
 import za.co.mmagon.jwebswing.utilities.TextUtilities;
+import za.co.mmagon.logger.LogFactory;
 
 /**
  * The base class for component options
@@ -73,8 +72,8 @@ public class ComponentOptionsScreen extends DemoPanel
         getOptions().setTheme(DemoApplicationBody.jqxTheme);
         naviRibbonBar = new JQXNavigationBar();
         naviRibbonBar.getOptions().setTheme(DemoApplicationBody.jqxTheme);
-        naviRibbonBar.getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
-        naviRibbonBar.getOptions().setHeight(MeasurementCSSImpl.hundredPercent);
+        naviRibbonBar.getOptions().setWidth(MeasurementPercentages.hundredPercent);
+        naviRibbonBar.getOptions().setHeight(MeasurementPercentages.hundredPercent);
         add(naviRibbonBar);
     }
 
@@ -86,10 +85,11 @@ public class ComponentOptionsScreen extends DemoPanel
         TableRow tr = new TableRow();
         //tr.setMargin_Left(new MeasurementCSSImpl(4));
         TableCell tcName = new TableCell(TextUtilities.cleanCamelCaseName(f.getName()).toString());
-        tcName.setPaddingRight(new MeasurementCSSImpl(10));
+        
+       // tcName.setPaddingRight(new MeasurementCSSImpl(10));
         TableCell tcValue = new TableCell();
 
-        tcName.setTextAlign(TextAlignments.Right);
+     //   tcName.setTextAlign(TextAlignments.Right);
 
         ComponentUtils.setWidth100Percent(tr);
         ComponentUtils.setWidth50Percent(tcName);
@@ -207,7 +207,7 @@ public class ComponentOptionsScreen extends DemoPanel
         return tr;
     }
 
-    private static final Logger log = LoggerFactory.getInstance().makeNewLoggerInstance("Component Options Screen");
+    private static final Logger log = LogFactory.getLog("Component Options Screen");
 
     public void configureDisplayedComponents(String header, JavaScriptPart componentOptions)
     {

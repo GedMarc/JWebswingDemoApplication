@@ -22,15 +22,13 @@ import za.co.mmagon.jwebswing.components.jqueryui.position.Position;
 import za.co.mmagon.jwebswing.components.jqueryui.position.PositionLocationHorizontal;
 import za.co.mmagon.jwebswing.components.jqueryui.position.PositionLocationVertical;
 import za.co.mmagon.jwebswing.components.jqueryui.selectmenu.JQUISelectMenuFeature;
-import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSS;
 
 /**
  *
  * @author GedMarc
  * @since 28 Apr 2015
  */
-@CSS(Min_Width = @MeasurementCSS(140))
+/*@CSS(Min_Width = @MeasurementCSS(140))*/
 public class OptionsSelectMenuCSSClass extends CSSComponent
 {
 

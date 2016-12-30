@@ -43,10 +43,10 @@ public class BarGraphDemoScreen extends Div
         Div barGraphsDiv2 = new Div();
         Div barGraphsDiv3 = new Div();
         Div barGraphsDiv4 = new Div();
-        barGraphsDiv1.setDisplay(Displays.Flex);
-        barGraphsDiv2.setDisplay(Displays.Flex);
-        barGraphsDiv3.setDisplay(Displays.Flex);
-        barGraphsDiv4.setDisplay(Displays.Flex);
+        barGraphsDiv1.getCss().getDisplay().setDisplay(Displays.Flex);
+        barGraphsDiv2.getCss().getDisplay().setDisplay(Displays.Flex);
+        barGraphsDiv3.getCss().getDisplay().setDisplay(Displays.Flex);
+        barGraphsDiv4.getCss().getDisplay().setDisplay(Displays.Flex);
 
         barGraphsDiv1.add(getSingleCategoryBarGraph());
         barGraphsDiv1.add(getMultipleCategoryBarGraph());
@@ -74,7 +74,7 @@ public class BarGraphDemoScreen extends Div
         JQPlotSeriesBarOptions barOptions = (JQPlotSeriesBarOptions) graph.getOptions().getSeriesDefaults().getRendererOptions();
         barOptions.setVaryBarColor(true);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("A", 12.0));
         graph.addBar(new JQPlotBar("B", 14.0));
@@ -92,7 +92,7 @@ public class BarGraphDemoScreen extends Div
         JQPlotBarGraph graph = getNewGraph();
         graph.getOptions().getTitle().setText("2D Bar Graph");
         graph.getOptions().setAnimate(Boolean.TRUE);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", 94.0));
@@ -126,7 +126,7 @@ public class BarGraphDemoScreen extends Div
         graph.setOrientation(Orientation.HORIZONTAL);
         graph.getOptions().getTitle().setText("2D Bar Graph Horizontal");
         graph.getOptions().setAnimate(Boolean.TRUE);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", 94.0));
@@ -157,7 +157,7 @@ public class BarGraphDemoScreen extends Div
         graph.getOptions().setAnimate(Boolean.TRUE);
         graph.getOptions().setStackSeries(true);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", 94.0));
@@ -189,7 +189,7 @@ public class BarGraphDemoScreen extends Div
         graph.getOptions().setAnimate(Boolean.TRUE);
         graph.getOptions().setStackSeries(true);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", 94.0));
@@ -218,7 +218,7 @@ public class BarGraphDemoScreen extends Div
         JQPlotBarGraph graph = getNewGraph();
         graph.getOptions().getTitle().setText("Negative Labels Display (Auto Change)");
         graph.getOptions().setAnimate(Boolean.TRUE);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", -17.0));
@@ -248,7 +248,7 @@ public class BarGraphDemoScreen extends Div
         graph.setOrientation(Orientation.HORIZONTAL);
         graph.getOptions().getTitle().setText("Negative Labels Display (Auto Change) Horizontal");
         graph.getOptions().setAnimate(Boolean.TRUE);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", -17.0));
@@ -281,7 +281,7 @@ public class BarGraphDemoScreen extends Div
         graph.getOptions().getAxes().getY2Axis().setMin(0);
         graph.getOptions().getAxes().getY2Axis().setTickInterval(5);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar("2008", 14.0);
         graph.addBar("Apricots", 3.0);
@@ -318,7 +318,7 @@ public class BarGraphDemoScreen extends Div
         graph.getOptions().getAxes().getY2Axis().setMin(0);
         graph.getOptions().getAxes().getY2Axis().setTickInterval(5);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar("2008", 14.0);
         graph.addBar("Apricots", 3.0);
@@ -353,7 +353,7 @@ public class BarGraphDemoScreen extends Div
         graph.getOptions().getSeriesDefaults().setFill(true);
         graph.getBarGraphOptions().setDisableStack(true);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar("2008", 14.0);
         graph.addBar("Apricots", 4.0);

@@ -22,7 +22,7 @@ import za.co.mmagon.jwebswing.components.jqxwidgets.panel.JQXPanel;
 import za.co.mmagon.jwebswing.components.jqxwidgets.panel.JQXPanelFeature;
 import za.co.mmagon.jwebswing.components.jqxwidgets.panel.JQXPanelSizeModes;
 import za.co.mmagon.jwebswing.demo.DemoApplicationBody;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 
 /**
  *
@@ -54,8 +54,8 @@ public class DemoPanel extends JQXPanel
             addFeature(feature);
             feature.getOptions().setTheme(DemoApplicationBody.jqxTheme);
             feature.getOptions().setSizeMode(JQXPanelSizeModes.fixed);
-            feature.getOptions().setHeight(MeasurementCSSImpl.hundredPercent);
-            feature.getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
+            feature.getOptions().setHeight(MeasurementPercentages.hundredPercent);
+            feature.getOptions().setWidth(MeasurementPercentages.hundredPercent);
         }
 
     }

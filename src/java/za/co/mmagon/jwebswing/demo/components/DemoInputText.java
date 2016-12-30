@@ -19,7 +19,7 @@ package za.co.mmagon.jwebswing.demo.components;
 
 import za.co.mmagon.jwebswing.components.jqxwidgets.input.JQXInput;
 import za.co.mmagon.jwebswing.demo.DemoApplicationBody;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 
 /**
  * This Class
@@ -36,7 +36,7 @@ public class DemoInputText extends JQXInput
     {
         getOptions().setHeight(25);
         getOptions().setTheme(DemoApplicationBody.jqxTheme);
-        getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
+        getOptions().setWidth(MeasurementPercentages.hundredPercent);
 
     }
 

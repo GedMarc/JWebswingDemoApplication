@@ -12,9 +12,9 @@ import za.co.mmagon.jwebswing.base.html.TableCell;
 import za.co.mmagon.jwebswing.base.html.TableHeaderGroup;
 import za.co.mmagon.jwebswing.base.html.TableRow;
 import za.co.mmagon.jwebswing.base.html.attributes.HeaderTypes;
-import za.co.mmagon.jwebswing.components.jqdatatable.JQDataTable;
 import za.co.mmagon.jwebswing.components.google.sourceprettify.JQSourceCodePrettify;
 import za.co.mmagon.jwebswing.components.google.sourceprettify.SourceCodeLanguages;
+import za.co.mmagon.jwebswing.components.jqdatatable.JQDataTable;
 import za.co.mmagon.jwebswing.components.jqueryui.accordion.JQUIAccordionHeightStyle;
 import za.co.mmagon.jwebswing.components.jqueryui.tabs.JQUITab;
 import za.co.mmagon.jwebswing.components.jqueryui.tabs.Tab;
@@ -83,7 +83,7 @@ public class EventHandlingScreen extends DefaultScreenDisplay
 
         JQUITab tabs = new JQUITab();
         tabs.getOptions().setHeightStyle(JQUIAccordionHeightStyle.Content);
-        tabs.setOverflow(Overflows.Scroll);
+        tabs.getCss().getDisplay().setOverflow(Overflows.Scroll);
         EventTypes[] events = EventTypes.values();
         // List eventList = new List();
         /*
@@ -121,7 +121,7 @@ public class EventHandlingScreen extends DefaultScreenDisplay
         }
         JQDataTable eventsTable = new JQDataTable(thg);
         //d.add(eventsTable);
-        tabs.setOverflow(Overflows.Scroll);
+        tabs.getCss().getDisplay().setOverflow(Overflows.Scroll);
         Div clickEvent = new Div();
         Tab clickEventTab = tabs.addTab(new Tab(new ListItem("Click Event"), clickEvent));
         clickEventTab.setTabDisplayComponent(clickEvent);

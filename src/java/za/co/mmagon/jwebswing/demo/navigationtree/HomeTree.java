@@ -8,7 +8,6 @@ import za.co.mmagon.jwebswing.components.jqxwidgets.tree.JQXTreeSelectEvent;
 import za.co.mmagon.jwebswing.demo.DemoApplicationScreens;
 import za.co.mmagon.jwebswing.demo.components.DemoTree;
 import za.co.mmagon.jwebswing.demo.screens.MenuTreeItem;
-import za.co.mmagon.jwebswing.htmlbuilder.css.colours.ColourNames;
 import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Overflows;
 
 /**
@@ -21,8 +20,6 @@ public class HomeTree extends DemoTree
 
     public HomeTree()
     {
-        setBackgroundColor$(ColourNames.Black);
-        getNewTree().setBackgroundColor$(ColourNames.Black);
 
         ArrayList<JQXTreeItem> homeList = addList("Getting Started");
         //homeList.add(new MenuTreeItem("Test Screen", DemoApplicationScreens.TestScreen, "images/Home.ico"));
@@ -32,13 +29,12 @@ public class HomeTree extends DemoTree
         homeList.add(new MenuTreeItem("Component Interactions", DemoApplicationScreens.ComponentInteractions, "images/Forward.ico"));
         homeList.add(new MenuTreeItem("YouTube Guides", DemoApplicationScreens.YouTubeLinksScreen, "images/Downloads.ico"));
 
-        setOverflow(Overflows.Hidden);
+        getCss().getDisplay().setOverflow(Overflows.Hidden);
         //System.out.println("tree options : " + getNewTree().getOptions());
         getNewTree().setID("homeTree");
 
         getNewTree().addEvent(new JQXTreeSelectEvent(getNewTree())
         {
-            
 
             @Override
             public void onSelect(AjaxCall ajaxObject, AjaxResponse ajaxReceiver)

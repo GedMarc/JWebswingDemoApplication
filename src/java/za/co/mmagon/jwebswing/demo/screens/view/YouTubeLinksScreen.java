@@ -16,15 +16,17 @@ import za.co.mmagon.jwebswing.demo.screens.ComponentOptionsScreen;
 import za.co.mmagon.jwebswing.demo.screens.MainWindowDisplay;
 import za.co.mmagon.jwebswing.demo.screens.SourceCodeScreen;
 import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
+import za.co.mmagon.jwebswing.htmlbuilder.css.displays.DisplayCSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Overflows;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
+import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextCSS;
 
 /**
  *
  * @author GedMarc
  * @since 02 May 2015
  */
-@CSS(Overflow = Overflows.Hidden)
+@CSS(Display = @DisplayCSS(Overflow = Overflows.Hidden))
 public class YouTubeLinksScreen extends DefaultScreenDisplay
 {
 
@@ -32,7 +34,7 @@ public class YouTubeLinksScreen extends DefaultScreenDisplay
     private DemoHeader h;
     private DemoHeader h1;
     private DemoHeader h2;
-    @CSS(Text_Align = TextAlignments.Left)
+    @TextCSS(TextAlign = TextAlignments.Left)
     private Div basicsDiv = new Div();
     private Div advancedDiv = new Div(); 
 

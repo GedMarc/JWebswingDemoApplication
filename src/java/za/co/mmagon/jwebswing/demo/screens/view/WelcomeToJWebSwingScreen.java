@@ -106,7 +106,7 @@ public class WelcomeToJWebSwingScreen extends DefaultScreenDisplay
     {
         MainWindowDisplay d = new MainWindowDisplay();
         d.add(new DemoHeader(HeaderTypes.H1, "Welcome To JWebSwing"));
-        d.setTextAlign(TextAlignments.Center);
+        d.getCss().getText().setTextAlign(TextAlignments.Center);
         //d.add(h);
         d.add(HorizontalRule.getInstance());
         d.add(welcomeText);

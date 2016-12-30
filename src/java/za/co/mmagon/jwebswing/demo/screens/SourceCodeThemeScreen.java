@@ -11,7 +11,7 @@ import za.co.mmagon.jwebswing.components.google.sourceprettify.SourceCodePrettif
 import za.co.mmagon.jwebswing.components.jqxwidgets.radiobutton.JQXRadioButtonAttributes;
 import za.co.mmagon.jwebswing.demo.components.DemoPanel;
 import za.co.mmagon.jwebswing.demo.components.DemoRadioButton;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 
 /**
  *
@@ -36,7 +36,7 @@ public class SourceCodeThemeScreen extends DemoPanel
         addFeature(feature);
 
         displayTable.add(displayTableBody);
-        displayTable.setWidth(MeasurementCSSImpl.hundredPercent);
+        displayTable.getCss().getDimensions().setWidth(MeasurementPercentages.hundredPercent);
         add(displayTable);
     }
 
@@ -50,7 +50,7 @@ public class SourceCodeThemeScreen extends DemoPanel
             DemoRadioButton themeButton = new DemoRadioButton(next.name());
             themeButton.addAttribute(GlobalAttributes.JWType, next.getCssReference());
             themeButton.addAttribute(JQXRadioButtonAttributes.Value, next.toString());
-            themeButton.setWidth(MeasurementCSSImpl.hundredPercent);
+            themeButton.getCss().getDimensions().setWidth(MeasurementPercentages.hundredPercent);
             themeButton.addClass("prettySelect");
 
             newCell.add(themeButton);

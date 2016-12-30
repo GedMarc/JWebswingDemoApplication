@@ -3,21 +3,16 @@ package za.co.mmagon.jwebswing.demo.styles;
 import za.co.mmagon.jwebswing.CSSComponent;
 import za.co.mmagon.jwebswing.components.jqxwidgets.buttons.JQXButtonFeature;
 import za.co.mmagon.jwebswing.demo.DemoApplicationBody;
-import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSS;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementTypes;
-import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
-import za.co.mmagon.jwebswing.htmlbuilder.css.text.VerticalAlignments;
 
 /**
  *
  * @author GedMarc
  * @since 26 Apr 2015
- */
+ *//*
 @CSS(Width = @MeasurementCSS(value = 140, MeasurementType = MeasurementTypes.Pixels),
         //Height = @MeasurementCSS(value = 80, MeasurementType = MeasurementTypes.Pixels),
         Top = @MeasurementCSS(15), Text_Align = TextAlignments.Center, Vertical_Align = VerticalAlignments.Middle)
-
+*/
 public class DefaultLargeButtonCSSClass extends CSSComponent
 {
 

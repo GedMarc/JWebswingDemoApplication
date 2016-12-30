@@ -59,9 +59,9 @@ public class JQPlotBubbleGraphsDemo extends DefaultScreenDisplay
     public MainWindowDisplay getDefaultDisplayScreen()
     {
         JQPlotGraphsMainWindow mwd = new JQPlotGraphsMainWindow();
-        barGraphsDiv1.setDisplay(Displays.Flex);
-        barGraphsDiv2.setDisplay(Displays.Flex);
-        barGraphsDiv3.setDisplay(Displays.Flex);
+        barGraphsDiv1.getCss().getDisplay().setDisplay(Displays.Flex);
+        barGraphsDiv2.getCss().getDisplay().setDisplay(Displays.Flex);
+        barGraphsDiv3.getCss().getDisplay().setDisplay(Displays.Flex);
 
         barGraphsDiv1.add(mwd.getBubbleGraph());
         barGraphsDiv1.add(mwd.getBubbleGraphTransparency());

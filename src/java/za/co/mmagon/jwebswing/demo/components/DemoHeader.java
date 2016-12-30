@@ -21,20 +21,30 @@ import za.co.mmagon.jwebswing.base.html.HeaderText;
 import za.co.mmagon.jwebswing.base.html.attributes.HeaderTypes;
 import za.co.mmagon.jwebswing.components.jqueryui.themes.JQUIThemeBlocks;
 import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
+import za.co.mmagon.jwebswing.htmlbuilder.css.heightwidth.HeightWidthCSS;
+import za.co.mmagon.jwebswing.htmlbuilder.css.margins.MarginsCSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSS;
+import za.co.mmagon.jwebswing.htmlbuilder.css.padding.PaddingCSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
+import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextCSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.VerticalAlignments;
 
 /**
  *
  * @author GedMarc
  */
-@CSS(Height = @MeasurementCSS(30),
-        Vertical_Align = VerticalAlignments.Middle,
-        Text_Align = TextAlignments.Center,
-        Margin_Top = @MeasurementCSS(0), Padding_Top = @MeasurementCSS(5))
+@CSS(Dimensions = @HeightWidthCSS(Height = @MeasurementCSS(30)),
+     Text = @TextCSS(
+             VerticalAlign = VerticalAlignments.Middle,
+             TextAlign = TextAlignments.Center),
+     Margins = @MarginsCSS(
+             MarginTop = @MeasurementCSS(0)),
+     Padding = @PaddingCSS(
+             PaddingTop = @MeasurementCSS(5)))
 public class DemoHeader extends HeaderText
 {
+
+    private static final long serialVersionUID = 1L;
 
     public DemoHeader(HeaderTypes headerType, String text)
     {

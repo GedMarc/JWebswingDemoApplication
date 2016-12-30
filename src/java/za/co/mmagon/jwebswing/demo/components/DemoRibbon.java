@@ -33,7 +33,7 @@ public class DemoRibbon extends JQXRibbon
     public DemoRibbon()
     {
         getOptions().setTheme(DemoApplicationBody.jqxTheme);
-        setBackgroundColor$(ColourNames.Black);
+        getCss().getBackground().setBackgroundColor$(ColourNames.Black);
     }
 
     @Override

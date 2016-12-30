@@ -1,8 +1,8 @@
 package za.co.mmagon.jwebswing.demo.screens;
 
 import za.co.mmagon.jwebswing.demo.DefaultScreenDisplay;
-import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
+import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextCSS;
 
 /**
  * This Class
@@ -10,7 +10,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
  * @author GedMarc
  * @since 28 Dec 2015
  */
-@CSS(Text_Align = TextAlignments.Center)
+@TextCSS(TextAlign = TextAlignments.Center)
 public class ComingSoon extends DefaultScreenDisplay
 {
 

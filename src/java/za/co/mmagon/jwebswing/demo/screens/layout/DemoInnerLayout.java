@@ -56,9 +56,9 @@ public class DemoInnerLayout extends JQLayout
 
         getCenter().addHeader("A True Java Only Web Framework");
         getEast().getContentDiv().add(cssOptions = new CssOptionsScreen());
-        getEast().getContentDiv().setOverflow(Overflows.Hidden);
-        optionsAccordian.setOverflow(Overflows.Hidden);
-        getEast().setOverflow(Overflows.Hidden);
+        getEast().getContentDiv().getCss().getDisplay().setOverflow(Overflows.Hidden);
+        optionsAccordian.getCss().getDisplay().setOverflow(Overflows.Hidden);
+        getEast().getCss().getDisplay().setOverflow(Overflows.Hidden);
         componentOptions.setID("compOptions");
 
         getEast().addHeader("Options");
@@ -68,11 +68,11 @@ public class DemoInnerLayout extends JQLayout
         getOptions().getEast().setSpacing_closed(35);
         getOptions().getEast().setSpacing_open(35);
 
-        getEast().addThemes();
+        //getEast().addThemes();
 
         getOptions().getNorth().setSpacing_closed(0);
         getOptions().getNorth().setSpacing_open(0);
-        getNorth().addThemes();
+        //getNorth().addThemes();
 
         getCenter().getContentDiv().setID("contentDiv");
 

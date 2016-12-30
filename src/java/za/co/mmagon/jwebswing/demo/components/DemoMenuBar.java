@@ -7,15 +7,15 @@ package za.co.mmagon.jwebswing.demo.components;
 
 import za.co.mmagon.jwebswing.base.servlets.enumarations.Orientation;
 import za.co.mmagon.jwebswing.components.jqueryui.menu.JQUIMenu;
-import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
+import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextCSS;
 
 /**
  *
  * @author GedMarc
  * @since 27 Apr 2015
  */
-@CSS(Text_Align = TextAlignments.Left)
+@TextCSS(TextAlign = TextAlignments.Left)
 public class DemoMenuBar extends JQUIMenu
 {
 

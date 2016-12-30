@@ -23,16 +23,15 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.backgrounds.BackgroundCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.borders.BorderCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.colours.ColourCSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.displays.DisplayCSSImpl;
-import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Overflows;
 import za.co.mmagon.jwebswing.htmlbuilder.css.fonts.FontsCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.heightwidth.HeightWidthCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.lists.ListCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.margins.MarginsCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 import za.co.mmagon.jwebswing.htmlbuilder.css.outline.OutlineCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.padding.PaddingCSSImpl;
 import za.co.mmagon.jwebswing.htmlbuilder.css.tables.TableCSSImpl;
-import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextCSSImpl;
 import za.co.mmagon.jwebswing.utilities.ComponentUtils;
 import za.co.mmagon.jwebswing.utilities.TextUtilities;
@@ -52,11 +51,11 @@ public class CssOptionsScreen extends DemoPanel
     public CssOptionsScreen()
     {
         getOptions().setTheme(DemoApplicationBody.jqxTheme);
-        setOverflow(Overflows.Hidden);
+        //setOverflow(Overflows.Hidden);
         navBar.getOptions().setTheme(DemoApplicationBody.jqxTheme);
         add(navBar);
-        navBar.getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
-        navBar.getOptions().setHeight(MeasurementCSSImpl.hundredPercent);
+        navBar.getOptions().setWidth(MeasurementPercentages.hundredPercent);
+        navBar.getOptions().setHeight(MeasurementPercentages.hundredPercent);
 
         addNavigationGroup("Background Settings", new BackgroundCSSImpl());
         addNavigationGroup("Border Settings", new BorderCSSImpl());
@@ -138,8 +137,8 @@ public class CssOptionsScreen extends DemoPanel
         field.setAccessible(true);
         TableRow newRow = new TableRow();
         TableCell labelCell = new TableCell();
-        labelCell.setPaddingRight(new MeasurementCSSImpl(10));
-        labelCell.setTextAlign(TextAlignments.Right);
+        //labelCell.setPaddingRight(new MeasurementCSSImpl(10));
+        //labelCell.setTextAlign(TextAlignments.Right);
         TableCell valueCell = new TableCell();
         newRow.add(labelCell);
         newRow.add(valueCell);

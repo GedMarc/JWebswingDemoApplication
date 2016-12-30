@@ -49,9 +49,10 @@ public class JQUIDroppableDemo extends DefaultScreenDisplay
         JQUIDroppable droppable = new JQUIDroppable();
 
         JQUIDraggable d = new JQUIDraggable("scope");
-        d.setHeight(90);
-        d.setWidth(90);
-        d.addClass(JQUIThemeBlocks.UI_State_Default);
+        d.getCss().getDimensions().setHeight(90);
+        d.getCss().getDimensions().setWidth(90);
+        d.addClass(JQUIThemeBlocks.UI_State_Active);
+        d.getCss().getDisplay().setDisplay(Displays.Flex);
         d.add("I am Constrained ");
         d.getOptions().setContainment(constrain);
 
@@ -68,15 +69,15 @@ public class JQUIDroppableDemo extends DefaultScreenDisplay
     public MainWindowDisplay getDefaultDisplayScreen()
     {
         MainWindowDisplay mwd = new MainWindowDisplay();
-        mwd.setDisplay(Displays.Inline);
+        mwd.getCss().getDisplay().setDisplay(Displays.Inline);
         mwd.add(new DemoHeader(HeaderTypes.H1, headerText));
         mwd.add("<br>The Droppable Feature can be added onto any nearly any element as well.<br>"
                 + "All Available Options Available have been catered for<br>"
                 + "All Events Fire Server Side");
 
         Div dropOntoMe = new Div();
-        dropOntoMe.setHeight(350);
-        dropOntoMe.setWidth(350);
+        dropOntoMe.getCss().getDimensions().setHeight(350);
+        dropOntoMe.getCss().getDimensions().setWidth(350);
         dropOntoMe.add(getDroppableDivConstrained(dropOntoMe));
         dropOntoMe.addClass(JQUIThemeBlocks.UI_State_Error);
         mwd.add(dropOntoMe);

@@ -12,7 +12,7 @@ import za.co.mmagon.jwebswing.demo.DemoApplicationBody;
 import za.co.mmagon.jwebswing.demo.DemoApplicationScreens;
 import za.co.mmagon.jwebswing.demo.screens.MenuTreeItem;
 import za.co.mmagon.jwebswing.htmlbuilder.css.colours.ColourNames;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 
 /**
  * This Class
@@ -33,18 +33,18 @@ public class DemoTree extends DemoPanel
         newTree.getOptions().setTheme(DemoApplicationBody.jqxTheme);
         newTree.getOptions().setToggleMode(JQXTreeToggleModes.click);
         //newTree.getOptions().setExpandAll(true);
-        newTree.getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
-        newTree.getOptions().setHeight(MeasurementCSSImpl.hundredPercent);
+        newTree.getOptions().setWidth(MeasurementPercentages.hundredPercent);
+        newTree.getOptions().setHeight(MeasurementPercentages.hundredPercent);
         newTree.getOptions().setSource(getTreeItems());
         // newTree.addClass(format);
         add(newTree);
-        newTree.setBackgroundColor$(ColourNames.Black);
-        setBackgroundColor$(ColourNames.Black);
+        newTree.getCss().getBackground().setBackgroundColor$(ColourNames.Black);
+        getCss().getBackground().setBackgroundColor$(ColourNames.Black);
 
         getNewTree().addEvent(new JQXTreeSelectEvent(getNewTree())
         {
             private static final long serialVersionUID = 1L;
-            
+
             @Override
             public void onSelect(AjaxCall ajaxObject, AjaxResponse ajaxReceiver)
             {
@@ -52,8 +52,7 @@ public class DemoTree extends DemoPanel
                 screen.getScreenToDisplay().setTouched(true);
                 ajaxReceiver.addComponent(screen.getScreenToDisplay());
             }
-            
-            
+
         });
 
     }

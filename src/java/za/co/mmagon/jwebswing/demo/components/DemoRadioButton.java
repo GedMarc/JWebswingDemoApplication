@@ -4,8 +4,8 @@ import za.co.mmagon.jwebswing.CSSComponent;
 import za.co.mmagon.jwebswing.components.jqxwidgets.radiobutton.JQXRadioButton;
 import za.co.mmagon.jwebswing.components.jqxwidgets.radiobutton.JQXRadioButtonFeature;
 import za.co.mmagon.jwebswing.demo.DemoApplicationBody;
-import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextCSS;
 import za.co.mmagon.jwebswing.htmlbuilder.css.text.VerticalAlignments;
 
 /**
@@ -27,7 +27,7 @@ public class DemoRadioButton extends JQXRadioButton
 
     private static final RadioButtonFormat format = new RadioButtonFormat();
 
-    @CSS(Vertical_Align = VerticalAlignments.Middle)
+    @TextCSS(VerticalAlign = VerticalAlignments.Middle)
     private static class RadioButtonFormat extends CSSComponent
     {
 

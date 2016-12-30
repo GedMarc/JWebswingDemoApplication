@@ -29,7 +29,7 @@ public class DemoOuterLayout extends JQLayout
         getOptions().getWest().setTogglerLength_closed(0);
         getOptions().getWest().setTogglerLength_open(0);
         getOptions().getWest().setMinSize(350);
-        getWest().getContentDiv().setOverflow(Overflows.Hidden);
+        getWest().getContentDiv().getCss().getDisplay().setOverflow(Overflows.Hidden);
         //getWest().setBackgroundColour(ColourNames.Black);
 
 //        getWest().addFooter(b.getNotificationPanel());

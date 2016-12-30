@@ -15,10 +15,7 @@ import za.co.mmagon.jwebswing.components.jqxwidgets.panel.JQXPanelSizeModes;
 import za.co.mmagon.jwebswing.demo.DemoApplicationBody;
 import za.co.mmagon.jwebswing.demo.components.DemoButton;
 import za.co.mmagon.jwebswing.demo.components.DemoPanel;
-import za.co.mmagon.jwebswing.htmlbuilder.css.CSS;
-import za.co.mmagon.jwebswing.htmlbuilder.css.displays.Overflows;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
-import za.co.mmagon.jwebswing.htmlbuilder.css.text.TextAlignments;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 
 /**
  *
@@ -30,7 +27,7 @@ public class SourceCodeScreen extends DemoPanel
 
     private static final long serialVersionUID = 1L;
     private final HashMap<String, Class> screensToGenerate = new HashMap<>();
-    @CSS(Text_Align = TextAlignments.Center)
+  //  @CSS(Text_Align = TextAlignments.Center)
     private final JQXPanel buttonPanel = new JQXPanel();
     private final JQSourceCodePrettify sourceDisplay = new JQSourceCodePrettify();
 
@@ -39,31 +36,31 @@ public class SourceCodeScreen extends DemoPanel
     public SourceCodeScreen()
     {
         setID("sourceScreen");
-        setWidth(MeasurementCSSImpl.hundredPercent);
-        setHeight(MeasurementCSSImpl.hundredPercent);
-        setOverflow(Overflows.Hidden);
+     //   setWidth(MeasurementPercentages.hundredPercent);
+      //  setHeight(MeasurementPercentages.hundredPercent);
+      //  setOverflow(Overflows.Hidden);
         buttonPanel.getOptions().setTheme(DemoApplicationBody.jqxTheme);
         buttonPanel.setID("actualSource");
         buttonPanel.getOptions().setHeight(60);
-        buttonPanel.setHeight(60);
-        buttonPanel.getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
-        buttonPanel.setMarginTop(new MeasurementCSSImpl(2));
+       // buttonPanel.setHeight(60);
+        buttonPanel.getOptions().setWidth(MeasurementPercentages.hundredPercent);
+      //  buttonPanel.setMarginTop(new MeasurementCSSImpl(2));
         buttonPanel.addClass("sourceCodeButton");
 
         sourceDisplay.setID("sourceCode");
         sourceDisplay.setSourceCodePrettifyTheme(SourceCodePrettifyThemes.Sons_Of_Obsidian);
         addFeature(new SourceCodeFeature(this));
 
-        sourceDisplay.setHeight(MeasurementCSSImpl.hundredPercent);
+    //    sourceDisplay.setHeight(MeasurementPercentages.hundredPercent);
 
-        sourceDisplay.setOverflow(Overflows.Scroll);
+    //    sourceDisplay.setOverflow(Overflows.Scroll);
 
         //sourceDisplay.addFeature(feat);
         feat.getOptions().setTheme(DemoApplicationBody.jqxTheme);
         //displayPanel.getOptions().setAutoUpdate(true);
         feat.getOptions().setSizeMode(JQXPanelSizeModes.fixed);
-        feat.getOptions().setWidth(MeasurementCSSImpl.hundredPercent);
-        feat.getOptions().setHeight(MeasurementCSSImpl.ninetyThreePercent);
+        feat.getOptions().setWidth(MeasurementPercentages.hundredPercent);
+        feat.getOptions().setHeight(MeasurementPercentages.ninetyThreePercent);
 
         za.co.mmagon.jwebswing.utilities.ComponentUtils.removeAllMargins(sourceDisplay);
 

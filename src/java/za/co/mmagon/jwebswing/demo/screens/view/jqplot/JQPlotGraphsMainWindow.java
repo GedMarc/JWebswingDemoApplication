@@ -71,7 +71,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.getOptions().getHighlighter().setShowMarker(true);
         graph.getOptions().getHighlighter().setShowTooltip(false);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("A", 12.0));
         graph.addBar(new JQPlotBar("B", 14.0));
@@ -89,7 +89,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         JQPlotBarGraph graph = getNewGraph();
         graph.getOptions().getTitle().setText("2D Bar Graph");
         graph.getOptions().setAnimate(Boolean.TRUE);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", 94.0));
@@ -123,7 +123,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.setOrientation(Orientation.HORIZONTAL);
         graph.getOptions().getTitle().setText("2D Bar Graph Horizontal");
         graph.getOptions().setAnimate(Boolean.TRUE);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", 94.0));
@@ -154,7 +154,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.getOptions().setAnimate(Boolean.TRUE);
         graph.getOptions().setStackSeries(true);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", 94.0));
@@ -186,7 +186,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.getOptions().setAnimate(Boolean.TRUE);
         graph.getOptions().setStackSeries(true);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", 94.0));
@@ -215,7 +215,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         JQPlotBarGraph graph = getNewGraph();
         graph.getOptions().getTitle().setText("Negative Labels Display (Auto Change)");
         graph.getOptions().setAnimate(Boolean.TRUE);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", -17.0));
@@ -245,7 +245,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.setOrientation(Orientation.HORIZONTAL);
         graph.getOptions().getTitle().setText("Negative Labels Display (Auto Change) Horizontal");
         graph.getOptions().setAnimate(Boolean.TRUE);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar(new JQPlotBar("Cat 1", 12.0));
         graph.addBar(new JQPlotBar("Cat 1", -17.0));
@@ -278,7 +278,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.getOptions().getAxes().getY2Axis().setMin(0);
         graph.getOptions().getAxes().getY2Axis().setTickInterval(5);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar("2008", 14.0);
         graph.addBar("Apricots", 3.0);
@@ -315,7 +315,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.getOptions().getAxes().getY2Axis().setMin(0);
         graph.getOptions().getAxes().getY2Axis().setTickInterval(5);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar("2008", 14.0);
         graph.addBar("Apricots", 3.0);
@@ -350,7 +350,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.getOptions().getSeriesDefaults().setFill(true);
         graph.getBarGraphOptions().setDisableStack(true);
 
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.addBar("2008", 14.0);
         graph.addBar("Apricots", 4.0);
@@ -445,7 +445,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             3, 7, 9, 1, 5, 3, 8, 2, 5
         };
         graph.addLine(true, line);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
         return graph;
     }
 
@@ -460,7 +460,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             3, 7, 9, 1, 5, 3, 8, 2, 5
         };
         graph.addLine(true, line);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         //Allow verticle label for Y by default
         JQPlotAxisLabelRendererOptionsCanvasLabels axisDefaultLabels = new JQPlotAxisLabelRendererOptionsCanvasLabels(graph);
@@ -498,7 +498,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             13, 17, 19, 11, 15, 13, 18, 12, 15
         };
         //graph.addLine(true, line);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         double cosPoints[] = new double[]
         {
@@ -593,8 +593,8 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             13, 17, 19, 11, 15, 13, 18, 12, 15
         };
         //graph.addLine(true, line);
-        graph.setWidth(650);
-        graph.setHeight(330);
+        graph.getCss().getDimensions().setWidth(650);
+        graph.getCss().getDimensions().setHeight(330);
 
         double cosPoints[] = new double[]
         {
@@ -699,8 +699,8 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             13, 17, 19, 11, 15, 13, 18, 12, 15
         };
         //graph.addLine(true, line);
-        graph.setWidth(650);
-        graph.setHeight(330);
+        graph.getCss().getDimensions().setWidth(650);
+        graph.getCss().getDimensions().setHeight(330);
 
         double cosPoints[] = new double[]
         {
@@ -801,7 +801,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             JQPlotTickOptionsCanvasAxisTick.class.cast(graph.getOptions().getAxes().getxAxis().getTickRendererOptions()).setAngle(-15);
             graph.getOptions().getAxes().getxAxis().setRendererOptions(new JQPlotAxisDateRendererOptions(graph));
             JQPlotAxisDateRendererOptions.class.cast(graph.getOptions().getAxes().getxAxis().getRendererOptions()).setDrawBaseline(true);
-            graph.setWidth(460);
+            graph.getCss().getDimensions().setWidth(460);
             //graph.renderJavascripts(0);
 
             return graph;
@@ -826,7 +826,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             7, 13.3, 14.7, 5.2, 1.2
         };
         graph.addSlices(line);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
         return graph;
     }
 
@@ -852,7 +852,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             7, 13.3, 14.7, 5.2, 1.2
         };
         graph.addSlices(line);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.getOptions().getHighlighter().setShow(true);
         return graph;
@@ -884,7 +884,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
             7, 13.3, 14.7, 5.2, 1.2
         };
         graph.addSlices(line);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
 
         graph.getOptions().getHighlighter().setShow(true);
 
@@ -911,7 +911,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
 
         graph.addSlices(0, line);
         graph.addSlices(1, line2);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
         return graph;
     }
 
@@ -941,7 +941,7 @@ public class JQPlotGraphsMainWindow extends MainWindowDisplay
         graph.addSlices(0, line);
         graph.addSlices(1, line2);
         graph.addSlices(2, line3);
-        graph.setWidth(460);
+        graph.getCss().getDimensions().setWidth(460);
         return graph;
     }
 

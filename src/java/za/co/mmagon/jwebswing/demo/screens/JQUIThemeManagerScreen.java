@@ -11,7 +11,7 @@ import za.co.mmagon.jwebswing.components.jqueryui.themes.JQUIThemes;
 import za.co.mmagon.jwebswing.components.jqxwidgets.radiobutton.JQXRadioButtonAttributes;
 import za.co.mmagon.jwebswing.demo.components.DemoPanel;
 import za.co.mmagon.jwebswing.demo.components.DemoRadioButton;
-import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementCSSImpl;
+import za.co.mmagon.jwebswing.htmlbuilder.css.measurement.MeasurementPercentages;
 import za.co.mmagon.jwebswing.htmlbuilder.css.themes.Theme;
 import za.co.mmagon.jwebswing.utilities.ComponentUtils;
 
@@ -39,7 +39,7 @@ public class JQUIThemeManagerScreen extends DemoPanel
         addFeature(feature);
 
         displayTable.add(displayTableBody);
-        displayTable.setWidth(MeasurementCSSImpl.hundredPercent);
+        displayTable.getCss().getDimensions().setWidth(MeasurementPercentages.hundredPercent);
         add(displayTable);
     }
 

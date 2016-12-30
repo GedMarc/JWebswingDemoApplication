@@ -17,9 +17,10 @@
  */
 package za.co.mmagon.jwebswing.demo.screens.view.trees;
 
-import za.co.mmagon.jwebswing.components.d3.radialreingoldtilfordtreejs.JWRadialReingoldTilfordTree;
-import za.co.mmagon.jwebswing.components.d3.radialreingoldtilfordtreejs.JWRadialTreeItem;
-import za.co.mmagon.jwebswing.components.d3.reingoldtilfordtreejs.JWReingoldTilfordTreeOptions;
+
+import za.co.mmagon.jwebswing.components.d3.radialreingoldtilfordtree.JWRadialReingoldTilfordTree;
+import za.co.mmagon.jwebswing.components.d3.radialreingoldtilfordtree.JWRadialTreeItem;
+import za.co.mmagon.jwebswing.components.d3.reingoldtilfordtree.JWReingoldTilfordTreeOptions;
 import za.co.mmagon.jwebswing.demo.DefaultScreenDisplay;
 import za.co.mmagon.jwebswing.demo.screens.ComponentOptionsScreen;
 import za.co.mmagon.jwebswing.demo.screens.MainWindowDisplay;
