@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Blank</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>We don't use JSP, on purpose</div>
+        <p></p>
+         <p> 
+            <h3>Problem #1: Java Code Too Tempting</h3>
+            JSP makes it tempting to put Java code in the web page, even though 
+            that's considered bad design. Just as Java improves on C++ by removing 
+            the ability to use global variables and multiple inheritance, so do 
+            template engines improve on JSP by removing the ability to put raw 
+            code in the page. Template engines enforce good design. 
+            <h3>Problem #2: Java Code Required</h3>
+            Doing mundane things in JSP can actually demand putting Java code 
+            in the page. For example, assume the page needs to determine the context 
+            root of the current web application to create a link to the web app 
+            home page: 
+            <p> In JSP this is best done using Java code: 
+            <p> 
+            <pre>
+&lt;a href="&lt;%= request.getContextPath() %&gt;/index.html"&gt;Home page&lt;/a&gt;
+</pre>
+            <p> You can try to avoid Java code using the <tt>&lt;jsp:getProperty&gt;</tt> 
+              tag but that leaves you with the following hard-to-read string: 
+            <p> 
+            <pre>
+&lt;a href="&lt;jsp:getProperty name="request"
+property="contextPath"/&gt;/index.html"&gt;HomePage&lt;/a&gt;
+</pre>
+            <p> Using a template engine there's no Java code and no ugly syntax. 
+              Here's the same command written in WebMacro: 
+            <p> 
+            <pre>
+&lt;a href="$Request.ContextPath;/index.html"&gt;Home page&lt;/a&gt;
+</pre>
+            <p> In WebMacro, <tt>ContextPath</tt> is seen as a property of the 
+              <tt>$Request</tt> variable, accessed using a Perl-like syntax. Other 
+              template engines use other syntax styles. 
+            <p> An another example where JSP requires Java code in the page, assume 
+              an advanced "view" needs to set a cookie to record the user's default 
+              color scheme -- a task that presumably should be done by the view 
+              and not the servlet controller. In JSP it requires Java code: 
+            <p> 
+            <pre>
+&lt;% Cookie c = new Cookie("colorscheme", "blue"); response.addCookie(c); %&gt;
+</pre>
+            <p> In WebMacro there's no Java code: 
+            <p> 
+            <pre>
+#set $Cookie.colorscheme = "blue"
+</pre>
+            <p> As a last example, assume it's time to retrieve the color scheme 
+              cookie. For the benefit of JSP, we can presume also there's a utility 
+              class available to help since doing this raw with <tt>getCookies()</tt> 
+              is ridiculously difficult. In JSP: 
+            <p> 
+            <pre>
+&lt;% String colorscheme = ServletUtils.getCookie(request, "colorscheme"); %&gt;
+</pre>
+            <p> In WebMacro there's no need for a utility class and it's always: 
+            <p> 
+            <pre>
+$Cookie.colorscheme.Value
+</pre>
+            <p> For graphics artists writing JSP pages, which syntax would be 
+              simpler to learn? 
+            <p> JSP 1.1 introduced custom tags (allowing arbitrary HTML-like tags 
+              to appear in JSP pages executing Java code on the backend) which 
+              may help with tasks like this, assuming there becomes a widely known, 
+              fully featured, freely available, standardized tag library. So far 
+              that has yet to occur. 
+            <h3>Problem #3: Simple Tasks are Hard</h3>
+            Doing even a simple task such as header and footer includes is overly 
+            difficult with JSP. Assume there's a "header" template and a "footer" 
+            template to be included on all pages, and each template includes in 
+            its content the current page title. 
+            <p> In JSP the best way to do this is as follows: 
+            <pre>
+&lt;% String title = "The Page Title"; %&gt;
+&lt;%@ include file="/header.jsp" %&gt;
+  Your content here
+&lt;%@ include file="/footer.jsp" %&gt;
+</pre>
+            Page creators must not forget the semi-colon in the first line and 
+            must make sure to declare title as a Java String. Plus, the <tt>/header.jsp</tt> 
+            and <tt>/footer.jsp</tt> must be made publicly accessible somewhere 
+            under the document root even though they aren't full pages themselves. 
+            <p> In WebMacro including headers and footers is done easily: 
+            <pre>
+#set $title = "The Page Title"
+#parse "header.wm"
+  Your content here
+#parse "footer.wm"
+</pre>
+            There are no semi-colons or String types for designers to remember, 
+            and the .wm files are found in a customizable search path, not under 
+            the document root. 
+            <h3>Problem #4: Lousy Looping</h3>
+            Looping is overly difficult in JSP. Here's the JSP code to iterate 
+            over a vector of ISP objects printing the name of each. 
+            <pre>
+&lt;%
+  Enumeration e = list.elements();
+  while (e.hasMoreElements()) {
+    out.print("The next name is ");
+    out.println(((ISP)e.nextElement()).getName());
+    out.print("&lt;br&gt;");
+  }
+%&gt;
+</pre>
+            Someday there will be custom tags for doing these loops. And custom 
+            tags for "if" checks too. And JSP pages may look like a grotesque 
+            Java reimplemented with tags. But meanwhile, the webmacro loop is 
+            already quite nice: 
+            <pre>
+#foreach $isp in $isps {
+  The next name is $isp.Name &lt;br&gt;
+}
+</pre>
+            The <tt>#foreach</tt> directive could be replaced by a custom <tt>#foreach-backwards</tt> 
+            directive fairly easily as well if such a thing were necessary. 
+            <p> Will custom tags really solve this problem? Probably not. Here's 
+              a possible <tt>&lt;foreach&gt;</tt> tag. 
+            <pre>
+&lt;foreach item="isp" list="isps"&gt;
+  The next name is &lt;jsp:getProperty name="isp" property="name"/&gt; &lt;br&gt;
+&lt;/foreach&gt;
+</pre>
+            Which would a graphics artist prefer? 
+            <h3>Problem #5: Useless Error Messages</h3>
+            JSP page syntax errors can cause surprisingly odd and useless error 
+            messages. This is due to the fact the page is transformed into a servlet 
+            and then compiled. Good JSP tools can help narrow down errors to likely 
+            syntax error locations, but even the best of tools will probably have 
+            problems making all error messages meaningful. Some errors will just 
+            be impossible for tools to diagnose, due to the transformation. 
+            <p> For example, assume a JSP page needs to set a title common across 
+              all pages. What's wrong with the following? 
+            <pre>
+&lt;% static String title = "Global title"; %&gt;
+</pre>
+            Well, the Tomcat reference implementation for JSP says this is wrong: 
+            <pre>
+work/%3A8080%2F/JC_0002ejspJC_jsp_1.java:70: Statement expected.
+                static int count = 0;
+                ^
+</pre>
+            This cryptic error is trying to say that scriptlets like the above 
+            are placed inside the <tt>_jspService()</tt> method and static variables 
+            aren't allowed inside methods. The syntax should be <tt>&lt;%! %&gt;</tt>. 
+            Page designers won't recognize this error, and programmers likely 
+            won't either without looking at the generated source. Even the best 
+            tools probably won't be much help with errors such as these. 
+            <p> Assuming all the Java code could be moved out of the page, that 
+              still doesn't solve this problem. What's wrong with this expression 
+              that prints the value of <tt>count</tt>? 
+            <pre>
+&lt;% count %&gt;
+</pre>
+            The Tomcat engine says: 
+            <pre>
+work/8080/_0002ftest_0002ejsptest_jsp_0.java:56: Class count not found in
+type declaration.
+                 count 
+                 ^
+work/8080/_0002ftest_0002ejsptest_jsp_0.java:59: Invalid declaration.
+                out.write("\r\n");
+                         ^
+</pre>
+            In other words, there's an equal sign missing. It should be <tt>&lt;%= 
+            count %&gt;</tt>. 
+            <p> Because a template engine can operate directly on the template 
+              file without any "magical" translation to code, it's far easier 
+              to properly report errors. To use an analogy: When commands are 
+              typed into a command line Unix shell written in C, you don't want 
+              the shell to create a C program to execute the command. You want 
+              the shell to simply interpret the command and behave accordingly, 
+              with direct error messages when necessary. 
+            <h3>Problem #6: Need a Compiler</h3>
+            JSP requires a compiler be shipped with the webserver. That's problematic, 
+            especially since Sun doesn't give away the tools.jar library containing 
+            their javac compiler. Web servers can package an outside vendor's 
+            compiler such as IBM's jikes; however such compilers generally don't 
+            work on all platforms and (being written in C++) aren't much help 
+            to a pure-Java web server. JSP has a pre-compile option that can help 
+            some here, although that's a less than elegant solution. 
+            <h3>Problem #7: Wasted Space</h3>
+            JSP consumes extra hard drive space and extra memory space. For every 
+            30K JSP file on the server there must be a corresponding larger-than-30K 
+            class file created. This essentially doubles the hard drive requirements 
+            to store JSP pages. Considering how easily a JSP file can <tt>&lt;%@ 
+            include&gt;</tt> a large data file for display, this becomes a real 
+            concern. Also, each JSP's class file data must be loaded into the 
+            server's memory, meaning the server may eventually store the entire 
+            JSP document tree in memory. A few JVMs have the ability to remove 
+            class file data from memory; however, the programmer generally has 
+            no control over the rules for reclaiming and for large sites the reclaiming 
+            probably won't be aggressive enough. With template engines there's 
+            no need to duplicate the page data into a second file, so hard drive 
+            space is spared. Template engines also give the programmer full control 
+            over how templates are cached in memory. 
+            <p> There are also some downsides to using a template engine: 
+            <h3>Template Problem #1: No Specification</h3>
+            No specification exists for how a template engine should behave. However, 
+            it's interesting to note that this is far less important than with 
+            JSP because, unlike JSP, template engines demand nothing special of 
+            the web server -- any server supporting servlets supports template 
+            engines (including API 2.0 servers like Apache/JServ which can't fully 
+            support JSP)! Healthy competition for the best template engine design 
+            could actually spark innovation, especially assuming open source implementations 
+            that can leverage each other's ideas and code. As it stands now, WebMacro 
+            exists like Perl, a tool where the open source implementation is the 
+            specification. 
+            <h3>Template Problem #2: Not Widely Known</h3>
+            Template engines aren't widely known. JSP has had a tremendous amount 
+            of marketing and has gained terrific mind share. Using template engines 
+            is a relatively unknown alternative technique. 
+            <h3>Template Problem #3: Not Yet Tuned</h3>
+            Template engines have yet to be highly tuned. No performance numbers 
+            have been taken comparing template engine and JSP performance. Theoretically 
+            a well tuned implementations of a template engine should match a tuned 
+            implementation of JSP; however in the world today, considering the 
+            effort third party vendors have given to JSP so far, the odds are 
+            good that JSP implementations are better tuned. 
+            <h3>The Role of JSP</h3>
+            So is there a place for JSP in the future? Certainly. JSP is entirely 
+            relevant if what you're trying to do is wean people off of ASP. There's 
+            an extremely strong argument for providing something familiar looking 
+            in a new environment. This was one of the big motivations behind the 
+            creation of JSP, and that shows from the name -- it's no coincidence 
+            "JSP" is just one letter off from "ASP". 
+            <p> Yet there's a difference between what's suitable to someone who 
+              is new to an environment, and what's actually the best way to use 
+              that environment. 
+            <p> JSP is going to turn out to be one of the most important Java 
+              technologies for convincing people to leave the ASP world in favor 
+              of Java -- and hence there's a strong business case for Sun supporting 
+              it, and for any Java booster to support it. 
+            <p> However, that doesn't make it the best solution for the Java platform. 
+              That makes it the Java solution that is most like the non-Java solution. 
+            <p> 
+    </body>
+</html>
